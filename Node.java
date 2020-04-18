@@ -7,14 +7,14 @@ class Node
     List<Edge> weightedNeighbors;
     boolean visited;
         
-    public Node(int item)		//integer constructor
+    public Node(final int item)		//integer constructor
     {
         value = item;
         neighbors = new ArrayList<Node>();
         weightedNeighbors = new ArrayList<Edge>();
         visited = false;
     }
-    public Node(String item)	//string constructor
+    public Node(final String item)	//string constructor
     {
         val = item;
         neighbors = new ArrayList<Node>();

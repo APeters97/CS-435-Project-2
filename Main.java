@@ -5,7 +5,7 @@ public class Main
 	Random random = new Random();
 	GraphSearch gs = new GraphSearch();
 	//3b
-	public Graph createRandomUnweightedGraphIter(int n)	//create random unweighted graph
+	public Graph createRandomUnweightedGraphIter(final int n)	//create random unweighted graph
 	{
 		Graph newGraph = new Graph();		//create graph to return
 		ArrayList<Integer> inGraph = new ArrayList<Integer>();
@@ -38,7 +38,7 @@ public class Main
 	}
 	
 	//3c
-	public Graph createLinkedList(int n)	//create a linked list graph
+	public Graph createLinkedList(final int n)	//create a linked list graph
 	{
 		Graph newLL = new Graph();		//create new graph to return
 		for(int i = 1; i <= n; i++)			//add n number of nodes to graph
@@ -52,14 +52,14 @@ public class Main
 	}
 	
 	//3h
-	public ArrayList<Node> BFTRecLinkedList(int n)	//call BFT recursive on a linked list
+	public ArrayList<Node> BFTRecLinkedList(final int n)	//call BFT recursive on a linked list
 	{
 		Graph LLgraph = createLinkedList(n);	//create new linked list graph
 		return(gs.BFTRec(LLgraph));				//call recursive BFT on graph
 	}
 	
 	//3i
-	public ArrayList<Node> BFSIterLinkedList(int n)	//call BFT iterative on a linked list
+	public ArrayList<Node> BFSIterLinkedList(final int n)	//call BFT iterative on a linked list
 	{
 		Graph LLgraph = createLinkedList(n);	//create linked list graph
 		return(gs.BFTIter(LLgraph));		//call iterative BFT on graph
@@ -206,7 +206,7 @@ public class Main
 	}
 	
 	//6b
-	public GridGraph createRandomGridGraph(int n)	//create random grid maze
+	public GridGraph createRandomGridGraph(final int n)	//create random grid maze
 	{
 		GridGraph randomGraph = new GridGraph(n);		//create a new grid graph of size n x n
 		ArrayList<Integer> inGraph = new ArrayList<Integer>();		//create helper list
@@ -298,21 +298,12 @@ public class Main
 		
 		return aStarPath;		//return path list
 	}
-	public int calculateManhattan(GridNode curr, GridNode goal)		//helper method to calculate Manhattan value
+	public int calculateManhattan(final GridNode curr, final GridNode goal)		//helper method to calculate Manhattan value
 	{
 		
 		int xPos = Math.abs(curr.xPos - goal.xPos);
 		int yPos = Math.abs(curr.yPos - goal.yPos);
 		
 		return (yPos + xPos);
-	}
-	
-	public int generateRandomNumber(ArrayList<Integer> numList, int n)
-	{
-		int randNumber = random.nextInt(n*100)+1;		//generate a random number to add to graph
-		while(numList.contains(randNumber))			//if the number is already in graph, find new number
-			randNumber = random.nextInt(n*100)+1;
-		numList.add(randNumber);						//add number to helper list
-		return randNumber;
 	}
 }

@@ -2,7 +2,7 @@ class Edge
 {
 	Node destination;
 	int weight;
-	public Edge(Node n, int w)
+	public Edge(final Node n, final int w)
 	{
 		destination = n;
 		weight = w;

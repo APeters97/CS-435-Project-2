@@ -6,7 +6,7 @@ class GridNode
 	boolean visited;
 	GridNode parent;	//used for backtracking
 	List<GridNode> neighbors;
-	public GridNode(int x, int y, int val)
+	public GridNode(final int x, final int y, final int val)
 	{
 		xPos = x;
 		yPos = y;

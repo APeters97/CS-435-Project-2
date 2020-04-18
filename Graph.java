@@ -9,7 +9,7 @@ public class Graph
 		vertices = new ArrayList<Node>();		//initialize vertices variable
 	}
 
-	public void addNode(Node n)		//used in string tests
+	public void addNode(final Node n)		//used in string tests
 	{
 		if(!vertices.contains(n))
 			vertices.add(n);

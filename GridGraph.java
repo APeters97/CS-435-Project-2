@@ -4,7 +4,7 @@ public class GridGraph
 {
 	//6a
 	GridNode[][] maze;			//variable to store all nodes in maze
-	public GridGraph(int n)		//create maze of size n x n
+	public GridGraph(final int n)		//create maze of size n x n
 	{
 		maze = new GridNode[n][n];
 	}
@@ -12,12 +12,12 @@ public class GridGraph
 	{
 		maze[x][y] = new GridNode(x, y, nodeVal);
 	}
-	public void addGridNode(int x, int y, GridNode n)	//used in testing
+	public void addGridNode(final int x, final int y, final GridNode n)	//used in testing
 	{
 		maze[x][y] = n;
 	}
 	
-	public void addUndirectedEdge(final GridNode first, GridNode second)	//add edge between first and second
+	public void addUndirectedEdge(final GridNode first, final GridNode second)	//add edge between first and second
 	{
 		int firstXPos = first.xPos;
 		int firstYPos = first.yPos;
