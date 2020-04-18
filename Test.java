@@ -758,13 +758,9 @@ public class Test
 	}
 	public int calculateManhattan(GridNode curr, GridNode goal)		//helper method to calculate Manhattan value
 	{
-		int currX = curr.xPos;
-		int currY = curr.yPos;
-		int goalX = goal.xPos;
-		int goalY = goal.yPos;
 		
-		int xPos = Math.abs(currX - goalX);
-		int yPos = Math.abs(currY - goalY);
+		int xPos = Math.abs(curr.xPos - goal.xPos);
+		int yPos = Math.abs(curr.yPos - goal.yPos);
 		
 		return (yPos + xPos);
 	}
