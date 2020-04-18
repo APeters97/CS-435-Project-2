@@ -8,24 +8,16 @@ public class Main
 	public Graph createRandomUnweightedGraphIter(int n)	//create random unweighted graph
 	{
 		Graph newGraph = new Graph();		//create graph to return
+		ArrayList<Integer> inGraph = new ArrayList<Integer>();
 		int nodeCounter = 0, randNum, randNode;	//helper variables
-		boolean dontAdd = false;				//helper variable
 		while(nodeCounter != n)			//add n number of nodes to graph
 		{
-			randNum = random.nextInt(n*10)+1;	//generate a random number to add to graph
-			for(Node currNode: newGraph.vertices)	//look through graph to make sure random number is not already there
-			{
-				if(randNum == currNode.value)	//if number is already in graph, set dontAdd to true
-				{
-					dontAdd = true;
-					break;
-				}
-			}
-			if(!dontAdd)	//only add the number if it is not in the graph, increment nodeCouter
-			{
-				newGraph.addNode(randNum);
-				nodeCounter++;
-			}
+			randNum = random.nextInt(n*10)+1;		//generate a random number to add to graph
+			while(inGraph.contains(randNum))			//if the number is already in graph, find new number
+				randNum = random.nextInt(n*10)+1;
+			newGraph.addNode(randNum);		//add number to graph
+			inGraph.add(randNum);			//add number to helper list
+			nodeCounter++;
 		}
 		for(Node x : newGraph.vertices)		//go through all nodes of the graph
 		{
@@ -161,13 +153,13 @@ public class Main
 		{
 			//System.out.println("Adding " + e.destination.val + " to hash with weight " + e.weight);
 			pathsAndParents.put(e.destination, new Path(e.weight, start));
-			dQueue.add(e.destination);											//add node to queue to be processed
+			dQueue.add(e.destination);			//add node to queue to be processed
 		}
 		
-		while(!dQueue.isEmpty())						//while there are nodes to process
+		while(!dQueue.isEmpty())		//while there are nodes to process
 		{			
-			Node curr = dQueue.poll();					//get the current node
-			curr.visited = true;						//set to visited
+			Node curr = dQueue.poll();		//get the current node
+			curr.visited = true;			//set to visited
 			//System.out.println("\nOn node: " + curr.val);
 			//System.out.println("Current weight: " + pathsAndParents.get(curr).weight + " with parent " + pathsAndParents.get(curr).parent.val);
 			for(Edge e : curr.weightedNeighbors)		//look through current node's neighbors
@@ -313,5 +305,14 @@ public class Main
 		int yPos = Math.abs(curr.yPos - goal.yPos);
 		
 		return (yPos + xPos);
+	}
+	
+	public int generateRandomNumber(ArrayList<Integer> numList, int n)
+	{
+		int randNumber = random.nextInt(n*100)+1;		//generate a random number to add to graph
+		while(numList.contains(randNumber))			//if the number is already in graph, find new number
+			randNumber = random.nextInt(n*100)+1;
+		numList.add(randNumber);						//add number to helper list
+		return randNumber;
 	}
 }
