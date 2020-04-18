@@ -15,7 +15,7 @@ public class WeightedGraph
 	{
 		vertices.add(new Node(value));
 	}
-	public void addNode(Node n)		//used for testing
+	public void addNode_TEST_ONLY(Node n)		//used for testing
 	{
 		vertices.add(n);
 	}

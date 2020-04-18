@@ -67,16 +67,16 @@ public class Test
 		gH.neighbors = new ArrayList<Node>(Arrays.asList(gF,gD));
 		gD.neighbors = new ArrayList<Node>(Arrays.asList(gE,gH));
 			
-		test1.addNode(gS);
-		test1.addNode(gA);
-		test1.addNode(gB);
-		test1.addNode(gC);
-		test1.addNode(gD);
-		test1.addNode(gE);
-		test1.addNode(gF);
-		test1.addNode(gG);
-		test1.addNode(gH);
-		test1.addNode(gX);
+		test1.addNode_TEST_ONLY(gS);
+		test1.addNode_TEST_ONLY(gA);
+		test1.addNode_TEST_ONLY(gB);
+		test1.addNode_TEST_ONLY(gC);
+		test1.addNode_TEST_ONLY(gD);
+		test1.addNode_TEST_ONLY(gE);
+		test1.addNode_TEST_ONLY(gF);
+		test1.addNode_TEST_ONLY(gG);
+		test1.addNode_TEST_ONLY(gH);
+		test1.addNode_TEST_ONLY(gX);
 		
 //DFS Recursive Test//////////////////////////////
 		System.out.println("\nDFS Recursive Test");
@@ -249,15 +249,15 @@ public class Test
 		Node dH = new Node("h");
 		Node dI = new Node("i");
 		
-		dijkstraTest.addNode(dA);
-		dijkstraTest.addNode(dB);
-		dijkstraTest.addNode(dC);
-		dijkstraTest.addNode(dD);
-		dijkstraTest.addNode(dE);
-		dijkstraTest.addNode(dF);
-		dijkstraTest.addNode(dG);
-		dijkstraTest.addNode(dH);
-		dijkstraTest.addNode(dI);
+		dijkstraTest.addNode_TEST_ONLY(dA);
+		dijkstraTest.addNode_TEST_ONLY(dB);
+		dijkstraTest.addNode_TEST_ONLY(dC);
+		dijkstraTest.addNode_TEST_ONLY(dD);
+		dijkstraTest.addNode_TEST_ONLY(dE);
+		dijkstraTest.addNode_TEST_ONLY(dF);
+		dijkstraTest.addNode_TEST_ONLY(dG);
+		dijkstraTest.addNode_TEST_ONLY(dH);
+		dijkstraTest.addNode_TEST_ONLY(dI);
 		
 		
 		dijkstraTest.addWeightedEdge(dA, dB, 4);

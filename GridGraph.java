@@ -12,10 +12,6 @@ public class GridGraph
 	{
 		maze[x][y] = new GridNode(x, y, nodeVal);
 	}
-	public void addGridNode(final int x, final int y, final GridNode n)	//used in testing
-	{
-		maze[x][y] = n;
-	}
 	
 	public void addUndirectedEdge(final GridNode first, final GridNode second)	//add edge between first and second
 	{
