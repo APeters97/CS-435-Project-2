@@ -3,17 +3,17 @@ import java.util.HashSet;
 public class GridGraph
 {
 	//6a
-	GridNode[][] maze;			//variable to store all nodes in maze
-	public GridGraph(final int n)		//create maze of size n x n
+	GridNode[][] maze;
+	public GridGraph(final int n)
 	{
 		maze = new GridNode[n][n];
 	}
-	public void addGridNode(final int x, final int y, int nodeVal)	//add node of value nodeVal to position x,y
+	public void addGridNode(final int x, final int y, int nodeVal)
 	{
 		maze[x][y] = new GridNode(x, y, nodeVal);
 	}
 	
-	public void addUndirectedEdge(final GridNode first, final GridNode second)	//add edge between first and second
+	public void addUndirectedEdge(final GridNode first, final GridNode second)
 	{
 		int firstXPos = first.xPos;
 		int firstYPos = first.yPos;
@@ -57,18 +57,18 @@ public class GridGraph
 		}
 	}
 	
-	public void removeUndirectedEdge(final GridNode first, final GridNode second)	//remove edge between first and second
+	public void removeUndirectedEdge(final GridNode first, final GridNode second)
 	{
-		if(first.neighbors.contains(second) && second.neighbors.contains(first))	//remove edge if the edge exists
+		if(first.neighbors.contains(second) && second.neighbors.contains(first))
 		{
 			first.neighbors.remove(second);
 			second.neighbors.remove(first);
 		}
 	}
 	
-	public HashSet<GridNode> getAllNodes()	//returns HashSet of all nodes in maze
+	public HashSet<GridNode> getAllNodes()
 	{
-		HashSet<GridNode> allNodes = new HashSet<GridNode>();		//create new set
+		HashSet<GridNode> allNodes = new HashSet<GridNode>();
 		for(int i = 0; i < maze.length; i++)
 		{
 			for(int j = 0; j < maze.length; j++)
@@ -77,6 +77,6 @@ public class GridGraph
 			}
 		}
 		
-		return allNodes;		//return HashSet
+		return allNodes;
 	}
 }

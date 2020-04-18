@@ -2,9 +2,9 @@ import java.util.*;
 public class TopSort
 {
 	//4d
-	public ArrayList<Node> Kahns(final DirectedGraph graph)	//khan traversal of a directed graph
+	public ArrayList<Node> Kahns(final DirectedGraph graph)
 	{
-		ArrayList<Node> kahnOutput = new ArrayList<Node>();		//create path list to return
+		ArrayList<Node> kahnOutput = new ArrayList<Node>();
 		
 		int[] inDegree = new int[graph.vertices.size()];	//create list to track in-degrees
 		Arrays.fill(inDegree, 0);							//initialize everything to 0
@@ -32,7 +32,7 @@ public class TopSort
 			addInDegree0(inDegree, kahnQueue, graph);		//call helper method again to add nodes with in-degree 0
 		}
 		
-		return kahnOutput;	//return path list
+		return kahnOutput;
 	}
 	public void addInDegree0(int[] inDegreeList, Queue<Node> kahnList, DirectedGraph g)	//helper method to add nodes with in-degree 0 to queue
 	{
@@ -43,7 +43,6 @@ public class TopSort
 				Node n = g.vertices.get(i);
 				kahnList.add(n);
 				inDegreeList[i]--;		//decrement in-degree to mark that this node is visited
-				//System.out.println("Adding " + n.value + " to queue");
 			}
 		}
 	}
@@ -51,7 +50,7 @@ public class TopSort
 	//4e
 	public ArrayList<Node> mDFS(final DirectedGraph graph)	//mDFS traversal of a directed graph
 	{
-		ArrayList<Node> mdfsOutput = new ArrayList<Node>();		//create path list
+		ArrayList<Node> mdfsOutput = new ArrayList<Node>();
 		
 		Stack<Node> mdfsStack = new Stack<Node>();		//create stack for traversal
 		for(Node n : graph.vertices)		//go through all nodes in graph
@@ -65,9 +64,9 @@ public class TopSort
 			mdfsOutput.add(curr);
 		}
 		
-		return mdfsOutput;		//return path list
+		return mdfsOutput;
 	}
-	public void mdfsHelper(Node curr, Stack<Node> stack)	//DFS recursive helper
+	public void mdfsHelper(Node curr, Stack<Node> stack)
 	{
 		curr.visited = true;		//set current node to visited
 		for(Node n : curr.neighbors)	//go through neighbors of the current node

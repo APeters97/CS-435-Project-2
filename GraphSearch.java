@@ -4,13 +4,13 @@ public class GraphSearch
 	//3d
 	public ArrayList<Node> DFSRec(final Node start, final Node end)		//recursive depth-first search
 	{
-		ArrayList<Node> dfsSearch = new ArrayList<Node>();	//create path list to return
-		dfsRecursive(start, end, dfsSearch);		//call recursive helper
+		ArrayList<Node> dfsSearch = new ArrayList<Node>();
+		dfsRecursive(start, end, dfsSearch);
 		
 		if(!dfsSearch.contains(end))	//if the destination node is not in the list, return null
 			return null;
 		
-		return dfsSearch;		//return path list
+		return dfsSearch;
 	}
 	
 	public void dfsRecursive(Node start, Node end, ArrayList<Node> al)	//DFS recursive helper
@@ -34,7 +34,7 @@ public class GraphSearch
 	//3e
 	public ArrayList<Node> DFSIter(final Node start, final Node end)	//iterative depth-first search
 	{
-		ArrayList<Node> dfsSearch = new ArrayList<Node>();		//create path list to return
+		ArrayList<Node> dfsSearch = new ArrayList<Node>();
 		if(start == end)			//if the start node is the destination, add to list and return
 		{
 			dfsSearch.add(start);
@@ -60,20 +60,20 @@ public class GraphSearch
 				}
 			}
 		}
-											//by this point, have gone through entire connected graph
+		
 		if(!dfsSearch.contains(end))		//if the destination is not in the list, return null
 			return null;
 		
-		return dfsSearch;					//return path list
+		return dfsSearch;
 	}
 	
 	//3f
 	public ArrayList<Node> BFTRec(final Graph graph)	//recursive breadth-first search
 	{
-		ArrayList<Node> bfsSearch = new ArrayList<Node>();		//create path list to return
-		Queue<Node> bfsQueue = new LinkedList<Node>();			//create queue for traversal
+		ArrayList<Node> bfsSearch = new ArrayList<Node>();
+		Queue<Node> bfsQueue = new LinkedList<Node>();		//create queue for traversal
 		
-		for(Node n : graph.vertices)		//go through all nodes in the graph
+		for(Node n : graph.vertices)
 		{
 			//if node is not visited, set to visited, add to queue, and call recursive helper
 			if(n.visited == false)			
@@ -85,7 +85,7 @@ public class GraphSearch
 			}
 		}
 			
-        return bfsSearch;		//return path list
+        return bfsSearch;
 	}
 	
 	public void bfsRecursive(Queue<Node> q, ArrayList<Node> al)	//BFS recursive helper
@@ -104,17 +104,17 @@ public class GraphSearch
 			}
 		}
 		
-		bfsRecursive(q, al);		//call recursive helper
+		bfsRecursive(q, al);
 	}
 	
 	//3g
 	public ArrayList<Node> BFTIter(final Graph graph)	//iterative breadth-first search
 	{
-		ArrayList<Node> bfsSearch = new ArrayList<Node>();	//create path list to return
+		ArrayList<Node> bfsSearch = new ArrayList<Node>();
 		
 		Queue<Node> bfsQueue = new LinkedList<Node>();		//create queue for traversal
 		Node curr;
-		for(Node n: graph.vertices)		//look through all nodes in the graph
+		for(Node n: graph.vertices)
 		{
 			if(n.visited == false)		//if node is not visited, set to visited and add to queue
 			{
@@ -135,6 +135,6 @@ public class GraphSearch
 				}
 			}
 		}
-		return bfsSearch;		//return path list
+		return bfsSearch;
 	}
 }

@@ -5,11 +5,11 @@ public class Main
 	Random random = new Random();
 	GraphSearch gs = new GraphSearch();
 	//3b
-	public Graph createRandomUnweightedGraphIter(final int n)	//create random unweighted graph
+	public Graph createRandomUnweightedGraphIter(final int n)
 	{
-		Graph newGraph = new Graph();		//create graph to return
+		Graph newGraph = new Graph();
 		HashSet<Integer> inGraph = new HashSet<Integer>();
-		int nodeCounter = 0, randNum, randNode;	//helper variables
+		int nodeCounter = 0, randNum, randNode;		//helper variables
 		while(nodeCounter != n)			//add n number of nodes to graph
 		{
 			randNum = random.nextInt(n*10)+1;		//generate a random number to add to graph
@@ -40,9 +40,9 @@ public class Main
 	}
 	
 	//3c
-	public Graph createLinkedList(final int n)	//create a linked list graph
+	public Graph createLinkedList(final int n)
 	{
-		Graph newLL = new Graph();		//create new graph to return
+		Graph newLL = new Graph();
 		for(int i = 1; i <= n; i++)			//add n number of nodes to graph
 			newLL.addNode(i);
 		
@@ -52,27 +52,27 @@ public class Main
 		for(int i = 0; i < n-1; i++)		
 			newLL.addUndirectedEdge(tempVertices.get(i), tempVertices.get(i+1));
 		
-		return newLL;		//return created graph
+		return newLL;
 	}
 	
 	//3h
-	public ArrayList<Node> BFTRecLinkedList(final int n)	//call BFT recursive on a linked list
+	public ArrayList<Node> BFTRecLinkedList(final int n)
 	{
-		Graph LLgraph = createLinkedList(n);	//create new linked list graph
-		return(gs.BFTRec(LLgraph));				//call recursive BFT on graph
+		Graph LLgraph = createLinkedList(n);
+		return(gs.BFTRec(LLgraph));
 	}
 	
 	//3i
-	public ArrayList<Node> BFSIterLinkedList(final int n)	//call BFT iterative on a linked list
+	public ArrayList<Node> BFSIterLinkedList(final int n)
 	{
-		Graph LLgraph = createLinkedList(n);	//create linked list graph
-		return(gs.BFTIter(LLgraph));		//call iterative BFT on graph
+		Graph LLgraph = createLinkedList(n);
+		return(gs.BFTIter(LLgraph));
 	}
 	
 	//4c
-	public DirectedGraph createRandomDAGIter(final int n)	//create random directed graph
+	public DirectedGraph createRandomDAGIter(final int n)
 	{
-		DirectedGraph newDAG = new DirectedGraph();		//create DAG to return
+		DirectedGraph newDAG = new DirectedGraph();
 		HashSet<Integer> inGraph = new HashSet<Integer>();		//create helper list
 		int nodeCounter = 0, randNum, randNode;	//helper variables
 		while(nodeCounter != n)			//add n number of nodes to graph
@@ -104,11 +104,11 @@ public class Main
 	}
 	
 	//5c
-	public WeightedGraph createRandomCompleteWeightedGraph(final int n)	//create random weighted complete graph
+	public WeightedGraph createRandomCompleteWeightedGraph(final int n)
 	{
-		WeightedGraph newWeightedGraph = new WeightedGraph();		//create graph to return
+		WeightedGraph newWeightedGraph = new WeightedGraph();
 		int randWeight;
-		for(int i = 0; i < n; i++)		//add n nodes to the graph
+		for(int i = 0; i < n; i++)
 			newWeightedGraph.addNode(i);
 		
 		for(Node curr : newWeightedGraph.vertices)		//go through each node in the graph
@@ -123,14 +123,14 @@ public class Main
 			}
 		}
 		
-		return newWeightedGraph;		//return weighted graph
+		return newWeightedGraph;
 	}
 	
 	//5d
-	public WeightedGraph createWeightedLinkedList(final int n)	//create weighted linked list graph
+	public WeightedGraph createWeightedLinkedList(final int n)
 	{
-		WeightedGraph newWeightedLL = new WeightedGraph();		//create new graph to return
-		for(int i = 0; i < n; i++)		//add n number of nodes to graph
+		WeightedGraph newWeightedLL = new WeightedGraph();
+		for(int i = 0; i < n; i++)
 			newWeightedLL.addNode(i);
 		
 		int randomWeight = random.nextInt(10)+1;	//generate a random uniform weight
@@ -138,7 +138,7 @@ public class Main
 		for(int i = 0; i < n-1; i++)	//go through all nodes in graph, and add an edge to a node and the one after it
 			newWeightedLL.addWeightedEdge(newWeightedLL.vertices.get(i), newWeightedLL.vertices.get(i+1), randomWeight);
 		
-		return newWeightedLL;		//return created graph
+		return newWeightedLL;
 	}
 	
 	//5e
@@ -146,7 +146,7 @@ public class Main
 	{
 		/*TO SEE DIJKSTRA LOGIC, UNCOMMENT PRINTLN STATEMENTS*/
 		
-		HashMap<Node, Integer> shortestPath = new HashMap<Node, Integer>();		//create Dijkstra HashMap to return
+		HashMap<Node, Integer> shortestPath = new HashMap<Node, Integer>();
 		
 		HashMap<Node, Path> pathsAndParents = new HashMap<Node, Path>();		//create HashMap with parents for testing
 		Queue<Node> dQueue = new LinkedList<Node>();							//create queue for processing
@@ -211,14 +211,14 @@ public class Main
 		for(Node n : pathsAndParents.keySet())		//transfer info from helper HashMap to Dijkstra HashMap to be returned
 			shortestPath.put(n, pathsAndParents.get(n).weight);
 		
-		return shortestPath;	//return the HashMap of shortest paths from source
+		return shortestPath;
 	}
 	
 	//6b
-	public GridGraph createRandomGridGraph(final int n)	//create random grid maze
+	public GridGraph createRandomGridGraph(final int n)
 	{
-		GridGraph randomGraph = new GridGraph(n);		//create a new grid graph of size n x n
-		HashSet<Integer> inGraph = new HashSet<Integer>();		//create helper list
+		GridGraph randomGraph = new GridGraph(n);
+		HashSet<Integer> inGraph = new HashSet<Integer>();
 		int randNumber;		//helper variable
 		for(int i = 0; i < n; i++)		//go through columns
 		{
@@ -250,13 +250,13 @@ public class Main
 				}
 			}
 		}
-		return randomGraph;		//return random maze
+		return randomGraph;
 	}
 	
 	//6d
 	public ArrayList<GridNode> astar(final GridNode source, final GridNode dest)	//returns list of A* path from source to dest
 	{
-		ArrayList<GridNode> aStarPath = new ArrayList<GridNode>();		//create path list
+		ArrayList<GridNode> aStarPath = new ArrayList<GridNode>();
 		
 		HashMap<GridNode, int[]> nodeDistances = new HashMap<GridNode, int[]>();	//create HashMap of nodes and destination values
 		int[] distances = {0, calculateManhattan(source, dest)};		//give destination values for source
@@ -305,7 +305,7 @@ public class Main
 		}
 		aStarPath.add(curr);		//once current equals destination, add to path list
 		
-		return aStarPath;		//return path list
+		return aStarPath;
 	}
 	public int calculateManhattan(final GridNode curr, final GridNode goal)		//helper method to calculate Manhattan value
 	{

@@ -3,10 +3,10 @@ import java.io.*;
 public class Graph
 {
 	//3a
-	List<Node> vertices;				//variables to store all nodes in graph
+	List<Node> vertices;
 	public Graph()
 	{
-		vertices = new ArrayList<Node>();		//initialize vertices variable
+		vertices = new ArrayList<Node>();
 	}
 
 	public void addNode_TEST_ONLY(final Node n)		//used in string tests
@@ -15,12 +15,12 @@ public class Graph
 			vertices.add(n);
 	}
 	
-	public void addNode(final int nodeVal)	//add node to vertices
+	public void addNode(final int nodeVal)
 	{	
 		vertices.add(new Node(nodeVal));
 	}
 	
-	public void addUndirectedEdge(final Node first, final Node second)		//add an edge between first and second
+	public void addUndirectedEdge(final Node first, final Node second)
 	{
 		if(vertices.size() < 2)		//don't add an edge if there is less than 2 nodes
 			return;
@@ -33,7 +33,7 @@ public class Graph
 		}
 	}
 	
-	public void removeUndirectedEdge(final Node first, final Node second)		//remove edge between first and second
+	public void removeUndirectedEdge(final Node first, final Node second)
 	{
 		if(vertices.size() < 2)		//don't remove an edge if there is less than 2 nodes
 			return;
@@ -46,12 +46,12 @@ public class Graph
 		}
 	}
 	
-	public HashSet<Node> getAllNodes()			//return set of all nodes in the graph
+	public HashSet<Node> getAllNodes()
 	{
-		HashSet<Node> allNodes = new HashSet<Node>();		//create new set
-		for(Node n : vertices)		//add all nodes in graph to the set
+		HashSet<Node> allNodes = new HashSet<Node>();
+		for(Node n : vertices)
 			allNodes.add(n);
 		
-		return allNodes;		//return set
+		return allNodes;
 	}
 }
