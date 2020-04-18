@@ -23,7 +23,6 @@ public class TopSort
 		{
 			Node curr = kahnQueue.poll();					//remove head of queue and current to that node
 			kahnOutput.add(curr);							//add current to the path list
-			//System.out.println("Added " + curr.value + " to list");
 			for(Node pointer : curr.neighbors)				//go through the points of current
 			{	
 				int index = graph.vertices.indexOf(pointer);	//find respective index in in-degree list
