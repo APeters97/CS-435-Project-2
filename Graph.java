@@ -34,7 +34,7 @@ public class Graph
 	
 	public void removeUndirectedEdge(final Node first, final Node second)		//remove edge between first and second
 	{
-		if(vertices.size() < 2)		//don't add an edge if there is less than 2 nodes
+		if(vertices.size() < 2)		//don't remove an edge if there is less than 2 nodes
 			return;
 		
 		if(first.neighbors.contains(second) && second.neighbors.contains(first))	//remove first and second from the other's neighbor list if they are there
