@@ -25,7 +25,8 @@ public class Graph
 		if(vertices.size() < 2)		//don't add an edge if there is less than 2 nodes
 			return;
 		
-		if(!first.neighbors.contains(second) && !second.neighbors.contains(first))		//add first and second to the other's neighbor list if they are not already there
+		//add first and second to the other's neighbor list if they are not already there
+		if(!first.neighbors.contains(second) && !second.neighbors.contains(first))
 		{
 			first.neighbors.add(second);
 			second.neighbors.add(first);
@@ -37,7 +38,8 @@ public class Graph
 		if(vertices.size() < 2)		//don't remove an edge if there is less than 2 nodes
 			return;
 		
-		if(first.neighbors.contains(second) && second.neighbors.contains(first))	//remove first and second from the other's neighbor list if they are there
+		//remove first and second from the other's neighbor list if they are there
+		if(first.neighbors.contains(second) && second.neighbors.contains(first))
 		{
 			first.neighbors.remove(second);
 			second.neighbors.remove(first);

@@ -21,9 +21,12 @@ public class GraphSearch
 			return;
 		for(Node n : start.neighbors)	//go through neighbors of the current node
 		{
-			if(n.visited == false)			//if node isn't visited, call recursive helper on the node
+			//if node isn't visited, call recursive helper on the node
+			if(n.visited == false)
 				dfsRecursive(n, end, al);
-			if(al.contains(end))			//if destination has been found, break out to stop looking at the rest of the neighbors
+			
+			//if destination has been found, break out to stop looking at the rest of the neighbors
+			if(al.contains(end))
 				break;
 		}
 	}
@@ -72,8 +75,10 @@ public class GraphSearch
 		
 		for(Node n : graph.vertices)		//go through all nodes in the graph
 		{
-			if(n.visited == false)			//if node is not visited, set to visited, add to queue, and call recursive helper
-			{								//this code is used for first node in graph, and any disconnected nodes
+			//if node is not visited, set to visited, add to queue, and call recursive helper
+			if(n.visited == false)			
+			{	
+				//this code is used for first node in graph, and any disconnected nodes
 				n.visited = true;
 				bfsQueue.add(n);
 				bfsRecursive(bfsQueue, bfsSearch);

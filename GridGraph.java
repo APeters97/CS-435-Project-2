@@ -21,7 +21,8 @@ public class GridGraph
 		int secondYPos = second.yPos;
 		if(firstXPos+1 == secondXPos && firstYPos == secondYPos)	//check that second is right neighbor of first
 		{
-			if(!first.neighbors.contains(second) && !second.neighbors.contains(first))	//if nodes are not already neighbors, add to each others neighbor's list
+			//if nodes are not already neighbors, add to each others neighbor's list
+			if(!first.neighbors.contains(second) && !second.neighbors.contains(first))
 			{
 				first.neighbors.add(second);
 				second.neighbors.add(first);
@@ -29,7 +30,8 @@ public class GridGraph
 		}
 		else if(firstXPos == secondXPos && firstYPos+1 == secondYPos)	//check that second is bottom neighbor of first
 		{
-			if(!first.neighbors.contains(second) && !second.neighbors.contains(first))	//if nodes are not already neighbors, add to each others neighbor's list
+			//if nodes are not already neighbors, add to each others neighbor's list
+			if(!first.neighbors.contains(second) && !second.neighbors.contains(first))
 			{
 				first.neighbors.add(second);
 				second.neighbors.add(first);
@@ -37,7 +39,8 @@ public class GridGraph
 		}
 		else if(firstXPos-1 == secondXPos && firstYPos == secondYPos)	//check that second is left neighbor of first
 		{
-			if(!first.neighbors.contains(second) && !second.neighbors.contains(first))	//if nodes are not already neighbors, add to each others neighbor's list
+			//if nodes are not already neighbors, add to each others neighbor's list
+			if(!first.neighbors.contains(second) && !second.neighbors.contains(first))
 			{
 				first.neighbors.add(second);
 				second.neighbors.add(first);
@@ -45,7 +48,8 @@ public class GridGraph
 		}
 		else if(firstXPos == secondXPos && firstYPos-1 == secondYPos)	//check that second is above neighbor of first
 		{
-			if(!first.neighbors.contains(second) && !second.neighbors.contains(first))	//if nodes are not already neighbors, add to each others neighbor's list
+			//if nodes are not already neighbors, add to each others neighbor's list
+			if(!first.neighbors.contains(second) && !second.neighbors.contains(first))
 			{
 				first.neighbors.add(second);
 				second.neighbors.add(first);

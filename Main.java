@@ -26,7 +26,9 @@ public class Main
 			{
 				randNode = random.nextInt(n);	//used to find a random node in the graph
 				Node node = newGraph.vertices.get(randNode);	//get a random node from the graph
-				if(x.neighbors.size() < 3 && node.neighbors.size() < 3)		//if current node and random node do not have 3 neighbors already, add an edge between them
+				
+				//if current node and random node do not have 3 neighbors already, add an edge between them
+				if(x.neighbors.size() < 3 && node.neighbors.size() < 3)	
 				{
 					if(x.value != node.value)	//add an edge if the current node and random node are not the same
 						newGraph.addUndirectedEdge(x, node);
@@ -45,7 +47,9 @@ public class Main
 			newLL.addNode(i);
 		
 		List<Node> tempVertices = newLL.vertices;	//helper variable
-		for(int i = 0; i < n-1; i++)					//go through all nodes in graph, and add an edge to a node and the one after it
+		
+		//go through all nodes in graph, and add an edge to a node and the one after it
+		for(int i = 0; i < n-1; i++)		
 			newLL.addUndirectedEdge(tempVertices.get(i), tempVertices.get(i+1));
 		
 		return newLL;		//return created graph
@@ -126,12 +130,12 @@ public class Main
 	public WeightedGraph createWeightedLinkedList(final int n)	//create weighted linked list graph
 	{
 		WeightedGraph newWeightedLL = new WeightedGraph();		//create new graph to return
-		for(int i = 0; i < n; i++)			//add n number of nodes to graph
+		for(int i = 0; i < n; i++)		//add n number of nodes to graph
 			newWeightedLL.addNode(i);
 		
-		int randomWeight = random.nextInt(10)+1;		//generate a random uniform weight
+		int randomWeight = random.nextInt(10)+1;	//generate a random uniform weight
 		
-		for(int i = 0; i < n-1; i++)					//go through all nodes in graph, and add an edge to a node and the one after it
+		for(int i = 0; i < n-1; i++)	//go through all nodes in graph, and add an edge to a node and the one after it
 			newWeightedLL.addWeightedEdge(newWeightedLL.vertices.get(i), newWeightedLL.vertices.get(i+1), randomWeight);
 		
 		return newWeightedLL;		//return created graph
@@ -149,7 +153,7 @@ public class Main
 		pathsAndParents.put(start, new Path(0, null));							//add start node to HashMap with weight 0
 		start.visited = true;													//set node to visited
 		//System.out.println("\nStarting at node: " + start.value);
-		for(Edge e: start.weightedNeighbors)									//look at start's neighbors and add to HashMap with weight from source
+		for(Edge e: start.weightedNeighbors)		//look at start's neighbors and add to HashMap with weight from source
 		{
 			//System.out.println("Adding " + e.destination.val + " to hash with weight " + e.weight);
 			pathsAndParents.put(e.destination, new Path(e.weight, start));
@@ -165,7 +169,9 @@ public class Main
 			for(Edge e : curr.weightedNeighbors)		//look through current node's neighbors
 			{
 				//System.out.println("   Neighbor: " + e.destination.val);
-				if(pathsAndParents.containsKey(e.destination))		//if the neighbor node is currently in the HashMap, check if weight needs to be updated
+				
+				//if the neighbor node is currently in the HashMap, check if weight needs to be updated
+				if(pathsAndParents.containsKey(e.destination))
 				{
 					Path currentNode = pathsAndParents.get(curr);			//grab the path info of the current node
 					int currentToNextNode = currentNode.weight + e.weight;
@@ -175,7 +181,9 @@ public class Main
 					
 					//System.out.println("      Existing weight: " + existingPathToNext);
 					//System.out.println("      Possible new weight: " + currentToNextNode);
-					if(currentToNextNode < existingPathToNext)		//if the weight of the new path is less than weight of old path, replace path
+					
+					//if the weight of the new path is less than weight of old path, replace path
+					if(currentToNextNode < existingPathToNext)
 					{
 						//System.out.println("         Replacing weight path");
 						pathsAndParents.replace(e.destination, new Path(currentToNextNode, curr));
@@ -183,7 +191,8 @@ public class Main
 					else
 						//System.out.println("         Not replacing weight path");
 					
-					if(e.destination.visited == false && !dQueue.contains(e.destination))	//if the neighbor node has not been processed yet, add to queue
+					//if the neighbor node has not been processed yet, add to queue
+					if(e.destination.visited == false && !dQueue.contains(e.destination))
 						dQueue.add(e.destination);
 				}
 				else					//neighbor node is not in HashMap, add it to HashMap with weight from current node
@@ -199,10 +208,10 @@ public class Main
 			}
 		}
 		
-		for(Node n : pathsAndParents.keySet())						//transfer info from helper HashMap to Dijkstra HashMap to be returned
+		for(Node n : pathsAndParents.keySet())		//transfer info from helper HashMap to Dijkstra HashMap to be returned
 			shortestPath.put(n, pathsAndParents.get(n).weight);
 		
-		return shortestPath;			//return the HashMap of shortest paths from source
+		return shortestPath;	//return the HashMap of shortest paths from source
 	}
 	
 	//6b

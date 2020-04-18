@@ -20,7 +20,7 @@ public class WeightedGraph
 		vertices.add(n);
 	}
 	
-	public void addWeightedEdge(final Node first, final Node second, final int edgeWeight)	//add weighted edge from firsst to second
+	public void addWeightedEdge(final Node first, final Node second, final int edgeWeight)	//add weighted edge from first to second
 	{
 		if(vertices.size() < 2)		//don't add an edge if the graph is less than 2 nodes
 			return;
