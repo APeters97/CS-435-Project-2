@@ -8,7 +8,7 @@ public class Main
 	public Graph createRandomUnweightedGraphIter(final int n)	//create random unweighted graph
 	{
 		Graph newGraph = new Graph();		//create graph to return
-		ArrayList<Integer> inGraph = new ArrayList<Integer>();
+		HashSet<Integer> inGraph = new HashSet<Integer>();
 		int nodeCounter = 0, randNum, randNode;	//helper variables
 		while(nodeCounter != n)			//add n number of nodes to graph
 		{
@@ -73,7 +73,7 @@ public class Main
 	public DirectedGraph createRandomDAGIter(final int n)	//create random directed graph
 	{
 		DirectedGraph newDAG = new DirectedGraph();		//create DAG to return
-		ArrayList<Integer> inGraph = new ArrayList<Integer>();		//create helper list
+		HashSet<Integer> inGraph = new HashSet<Integer>();		//create helper list
 		int nodeCounter = 0, randNum, randNode;	//helper variables
 		while(nodeCounter != n)			//add n number of nodes to graph
 		{
@@ -218,7 +218,7 @@ public class Main
 	public GridGraph createRandomGridGraph(final int n)	//create random grid maze
 	{
 		GridGraph randomGraph = new GridGraph(n);		//create a new grid graph of size n x n
-		ArrayList<Integer> inGraph = new ArrayList<Integer>();		//create helper list
+		HashSet<Integer> inGraph = new HashSet<Integer>();		//create helper list
 		int randNumber;		//helper variable
 		for(int i = 0; i < n; i++)		//go through columns
 		{
